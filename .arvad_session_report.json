@@ -1,0 +1,12 @@
+{
+  "files_created": [".gitignore", "package.json", "tsconfig.json", "eslint.config.js", ".prettierrc.json", ".prettierignore", ".husky/pre-commit", ".lintstagedrc.json", "frontend/package.json"],
+  "files_modified": ["README.md"],
+  "decisions": [
+    {"what": "Kept the existing 'arvad_task_files/' entry in .gitignore", "why": "Preserve pre-existing ignore rule while adding the specified patterns"},
+    {"what": "Added @typescript-eslint/parser, @typescript-eslint/eslint-plugin, eslint-plugin-react, eslint-plugin-react-hooks, eslint-plugin-security and globals to root devDependencies, plus a 'prepare: husky' script", "why": "eslint.config.js imports these packages and husky hooks need installing; without them lint and the pre-commit hook would fail"},
+    {"what": "Implemented no-unused-vars via @typescript-eslint/no-unused-vars with args 'after-used' and disabled the base rule", "why": "Base rule produces false positives on TypeScript types"},
+    {"what": "Applied 'concurrent: false' as '--concurrent false' in the husky pre-commit lint-staged call", "why": "lint-staged config files do not support a concurrent option; it is a CLI flag"},
+    {"what": "Added @types/react and @types/react-dom to frontend devDependencies", "why": "Required for 'tsc' type-checking of React TypeScript code"}
+  ],
+  "tools_used": ["Read", "Bash"]
+}
