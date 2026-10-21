@@ -1,6 +1,8 @@
+node_modules/
 dist/
 build/
-node_modules/
 coverage/
+.next/
 *.min.js
 package-lock.json
+pnpm-lock.yaml
